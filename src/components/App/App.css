@@ -6,3 +6,14 @@ body {
 }
 
 
+.container__background--large {
+    background: black;
+    width: 500px;
+    text-align: center;
+    margin: 20px auto;
+    /* border: solid white; */
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 15px;
+    margin-bottom: 80px;
+}
