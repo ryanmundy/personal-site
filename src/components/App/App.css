@@ -8,7 +8,7 @@ body {
 
 .container__background--large {
     background: black;
-    width: 500px;
+    width: 600px;
     text-align: center;
     margin: 20px auto;
     /* border: solid white; */
@@ -16,4 +16,40 @@ body {
     padding: 5px;
     padding-bottom: 15px;
     margin-bottom: 80px;
+}
+
+.container__background--large--resume {
+    background: black;
+    width: 700px;
+    /* text-align: center; */
+    margin: 20px auto;
+    /* border: solid white; */
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 15px;
+    margin-bottom: 80px;
+}
+
+.links{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+/* h3{
+    text-align: center;
+} */
+
+p{
+    text-align: center;
+}
+
+.school{
+    text-align: center;
 }
