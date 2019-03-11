@@ -12,6 +12,7 @@ import Home from '../Home/Home';
 import Resume from '../Resume/Resume';
 import Skills from '../Skills/Skills';
 import Contact from '../Contact/Contact';
+import Portfolio from '../Portfolio/Portfolio';
 import './App.css';
 
 class App extends Component {
@@ -42,6 +43,11 @@ class App extends Component {
               exact
               path="/contact"
               component={Contact}
+            />
+            <Route
+              exact
+              path="/portfolio"
+              component={Portfolio}
             />
           </Switch>
           <Footer />

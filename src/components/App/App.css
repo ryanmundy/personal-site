@@ -53,3 +53,14 @@ p{
 .school{
     text-align: center;
 }
+
+#projectGrid{
+    margin-bottom: 100px;
+}
+
+#projectCard{
+    margin-bottom: 50px;
+    background-color: black;
+    border: solid white;
+    padding: 10px;
+}
