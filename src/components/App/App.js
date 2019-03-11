@@ -5,14 +5,13 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
 import Resume from '../Resume/Resume';
 import Skills from '../Skills/Skills';
-
+import Contact from '../Contact/Contact';
 import './App.css';
 
 class App extends Component {
@@ -38,6 +37,11 @@ class App extends Component {
               exact
               path="/skills"
               component={Skills}
+            />
+            <Route
+              exact
+              path="/contact"
+              component={Contact}
             />
           </Switch>
           <Footer />

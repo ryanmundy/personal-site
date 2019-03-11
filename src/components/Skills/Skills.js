@@ -4,6 +4,7 @@ const Skills = () => (
     <div>
         <div className="div__container container__background--large">
             <h1>Skills</h1>
+            <hr></hr>
             <p>React.js</p>
             <p>React-Redux</p>
             <p>Redux-Saga</p>

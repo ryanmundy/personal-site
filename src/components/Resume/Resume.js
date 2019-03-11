@@ -4,6 +4,7 @@ const Resume = () => (
     <div>
         <div className="div__container container__background--large--resume">
             <h1>Resume</h1>
+            <hr></hr>
             <div className="links">
             <a target="_blank" href="https://github.com/ryanmundy"><img className="linkImage" height="25px" src="GitHub_Logo_White.png" alt="github" /></a>
             <a target="_blank" href="https://www.linkedin.com/in/ryan-mundy-4b147b88/"><img className="linkImage" height="25px" src="Logo-White-48px-TM.png" alt="linkedin" /></a>
