@@ -22,22 +22,12 @@
   text-decoration: none;
   font-size: 20px;
   margin: 10px;
-  /* these last two make the logout button in
-  the nav bar look like another link */
   border:none;
   cursor: pointer;
   outline:0;
 }
 
-/* .nav-link:hover {
-  background-color: lightgray;
-} */
-
-/* .nav-right {
-  float: right;
-} */
-
 .nav-image {
   /* margin: 10px; */
-  height: 100px;
+  height: 140px;
 }

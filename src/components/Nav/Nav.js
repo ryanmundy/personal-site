@@ -5,10 +5,8 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <img className="nav-image" src="logo4.png" alt="logo" />
+      <img className="nav-image" src="logo5.png" alt="logo" />
     </Link>
-    {/* <h1>Ryan Mundy</h1> */}
-    {/* <h3>Full Stack Software Developer</h3> */}
     <hr></hr>
     <br/>
     <div className="nav-right">
