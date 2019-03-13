@@ -8,7 +8,7 @@ body {
 
 .container__background--large {
     background: black;
-    width: 600px;
+    max-width: 600px;
     text-align: center;
     margin: 20px auto;
     /* border: solid white; */
@@ -20,12 +20,12 @@ body {
 
 .container__background--large--resume {
     background: black;
-    width: 700px;
+    max-width: 700px;
     /* text-align: center; */
     margin: 20px auto;
     /* border: solid white; */
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     padding-bottom: 15px;
     margin-bottom: 80px;
 }
@@ -56,6 +56,7 @@ p{
 
 #projectGrid{
     margin-bottom: 100px;
+    max-width: 700px;
 }
 
 #projectCard{
@@ -63,4 +64,9 @@ p{
     background-color: black;
     border: solid white;
     padding: 10px;
+    max-width: 700px;
+}
+
+#projectImage{
+    max-width: 500px;
 }
