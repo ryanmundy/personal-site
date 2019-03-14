@@ -5,6 +5,9 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 const bodyParser = require('body-parser');
+const GMAIL_USER = process.env.GMAIL_USER;
+const GMAIL_PASS = process.env.GMAIL_PASS;
+app.set('view engine', 'jade');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,7 +35,7 @@ app.post('/contact', function (req, res) {
   mailOpts = {
     from: req.body.name + ' &lt;' + req.body.email + '&gt;',
     to: GMAIL_USER,
-    subject: 'New message from contact form at tylerkrys.ca',
+    subject: 'New message from contact form at ryanmundy.herokuapp.com',
     text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
   };
   smtpTrans.sendMail(mailOpts, function (error, response) {

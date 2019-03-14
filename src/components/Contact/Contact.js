@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { Card, Button } from '@material-ui/core';
-import Axios from 'axios';
+import axios from 'axios';
+
 
 class Contact extends Component {
 
@@ -14,7 +15,15 @@ class Contact extends Component {
 
     submit = () => {
         console.log('in submit', this.state);
-        
+        axios({
+            method: 'POST',
+            url: '/contact',
+            data: this.state
+        }).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        });
     }
 
     //change handler for inputs
