@@ -23,27 +23,27 @@ class Contact extends Component {
 
     submit = () => {
         console.log('in submit', this.state);
-        if(this.state.name===''||this.state.email===''||this.state.message===''){
+        if (this.state.name === '' || this.state.email === '' || this.state.message === '') {
             alert('Please complete all fields!');
-        }else{
-        axios({
-            method: 'POST',
-            url: '/contact',
-            data: this.state
-        }).then((response) => {
-            console.log(response)
-        }).catch((error) => {
-            console.log(error)
-        });
-    }
+        } else {
+            axios({
+                method: 'POST',
+                url: '/contact',
+                data: this.state
+            }).then((response) => {
+                console.log(response)
+            }).catch((error) => {
+                console.log(error)
+            });
+        }
     }
 
     //change handler for inputs
     handleChangeFor = (propertyName) => (event) => {
         event.preventDefault();
         this.setState({
-                ...this.state,
-                [propertyName]: event.target.value
+            ...this.state,
+            [propertyName]: event.target.value
         });
     }
 
@@ -62,28 +62,28 @@ class Contact extends Component {
 
                 <div>
                     <MuiThemeProvider theme={theme}>
-                    <Card>
-                        <TextField
-                            placeholder="name"
-                            type="text"
-                            onChange={this.handleChangeFor('name')}
-                            margin="normal" />
-                        <TextField
-                            placeholder="email"
-                            type="text"
-                            onChange={this.handleChangeFor('email')}
-                            margin="normal" />
-                            <br/>
-                        <TextField
-                            placeholder="message"
-                            variant="outlined"
-                            multiline rows="4"
-                            type="text"
-                            onChange={this.handleChangeFor('message')}
-                            margin="normal" />
-                            <br/>
+                        <Card>
+                            <TextField
+                                placeholder="name"
+                                type="text"
+                                onChange={this.handleChangeFor('name')}
+                                margin="normal" />
+                            <TextField
+                                placeholder="email"
+                                type="text"
+                                onChange={this.handleChangeFor('email')}
+                                margin="normal" />
+                            <br />
+                            <TextField
+                                placeholder="message"
+                                variant="outlined"
+                                multiline rows="4"
+                                type="text"
+                                onChange={this.handleChangeFor('message')}
+                                margin="normal" />
+                            <br />
                             <Button margin="normal" onClick={this.submit} variant="outlined">Send</Button>
-                    </Card>
+                        </Card>
                     </MuiThemeProvider>
                 </div>
             </div>
