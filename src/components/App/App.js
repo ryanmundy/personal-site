@@ -14,8 +14,19 @@ import Skills from '../Skills/Skills';
 import Contact from '../Contact/Contact';
 import Portfolio from '../Portfolio/Portfolio';
 import './App.css';
+import ReactGA from 'react-ga';
+
+function initializeReactGA() {
+  ReactGA.initialize('UA-136265121-1');
+  ReactGA.pageview('/homepage');
+}
 
 class App extends Component {
+
+  componentDidMount(){
+    initializeReactGA();
+  }
+  
 
   render() {
     return (
