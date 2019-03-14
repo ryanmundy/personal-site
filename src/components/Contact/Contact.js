@@ -35,6 +35,11 @@ class Contact extends Component {
             }).catch((error) => {
                 console.log(error)
             });
+            this.setState({
+                name: '',
+                email: '',
+                message: ''
+            });
         }
     }
 
@@ -67,12 +72,15 @@ class Contact extends Component {
                                 placeholder="name"
                                 type="text"
                                 onChange={this.handleChangeFor('name')}
-                                margin="normal" />
+                                margin="normal"
+                                value={this.state.name} />
+                                
                             <TextField
                                 placeholder="email"
                                 type="text"
                                 onChange={this.handleChangeFor('email')}
-                                margin="normal" />
+                                margin="normal"
+                                value={this.state.email} />
                             <br />
                             <TextField
                                 placeholder="message"
@@ -80,7 +88,8 @@ class Contact extends Component {
                                 multiline rows="4"
                                 type="text"
                                 onChange={this.handleChangeFor('message')}
-                                margin="normal" />
+                                margin="normal"
+                                value={this.state.message} />
                             <br />
                             <Button margin="normal" onClick={this.submit} variant="outlined">Send</Button>
                         </Card>
