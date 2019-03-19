@@ -5,6 +5,7 @@ import { Card, Button } from '@material-ui/core';
 import axios from 'axios';
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import { createMuiTheme } from "@material-ui/core/styles"
+import swal from 'sweetalert';
 
 const theme = createMuiTheme({
     palette: {
@@ -32,6 +33,7 @@ class Contact extends Component {
                 data: this.state
             }).then((response) => {
                 console.log(response)
+                swal("Success!", "Ryan will be in touch with you shortly.", "success");
             }).catch((error) => {
                 console.log(error)
             });

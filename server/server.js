@@ -44,10 +44,10 @@ app.post('/contact', function (req, res) {
   };
   smtpTrans.sendMail(mailOpts, function (error, response) {
     if (error) {
-      res.render('contact-failure');
+      res.send('contact-failure');
     }
     else {
-      res.render('contact-success');
+      res.send('contact-success');
     }
   });
 });
