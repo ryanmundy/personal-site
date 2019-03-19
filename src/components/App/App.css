@@ -48,6 +48,11 @@ h2{
 
 p{
     text-align: center;
+    color: white;
+}
+
+a{
+    text-decoration: none;
 }
 
 .school{

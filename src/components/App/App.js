@@ -29,25 +29,36 @@ class App extends Component {
     origin: {
       lat: '',
       lng: ''
+    },
+    weather: {
+      currentWeather: '-- ',
+      currentDescription: '--',
+      currentIcon: ''
     }
-  }
-
-  componentWillMount() {
-    this.getGeoLocation();
   }
 
   componentDidMount() {
     initializeReactGA();
-    
+    this.getGeoLocation();
+  }
+
+  getWeather = () => {
     axios({
       method: 'GET',
       url: `/forecast/?lat=${this.state.origin.lat}&lng=${this.state.origin.lng}`
     }).then((response) => {
       console.log(response)
+      this.setState({
+        ...this.state,
+        weather: {
+          currentWeather: Math.round(response.data.currently.temperature),
+          currentDescription: response.data.currently.summary,
+          currentIcon: response.data.currently.icon
+        }
+      })
     }).catch((error) => {
       console.log(error)
     });
-    
   }
 
   // captures users current location 
@@ -64,6 +75,7 @@ class App extends Component {
               lng: position.coords.longitude
             }
           })
+          this.getWeather();
         }
       )
     } else {
@@ -74,11 +86,13 @@ class App extends Component {
 
   render() {
     console.log(this.state);
-    
+
     return (
       <Router>
         <div>
           <Nav />
+          <p>Current Weather: {this.state.weather.currentIcon} {this.state.weather.currentWeather}° F , {this.state.weather.currentDescription}</p>
+          <a target="_blank" href="https://darksky.net/poweredby/"><p style={{ fontSize: "10px" }}><em>Powered by Dark Sky</em></p></a>
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route
