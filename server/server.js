@@ -9,6 +9,7 @@ const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_PASS = process.env.GMAIL_PASS;
 let sslRedirect = require('heroku-ssl-redirect');
 app.set('view engine', 'jade');
+const DARK_SKY = process.env.DARK_SKY
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -53,7 +54,7 @@ app.post('/contact', function (req, res) {
 
 app.get('/forecast', (req, res) => {
   console.log(req.query);
-  axios.get(`https://api.darksky.net/forecast/${process.env.DARK_SKY}/${req.query.lat},${req.query.lng}`).then((response) => {
+  axios.get(`https://api.darksky.net/forecast/${DARK_SKY}/${req.query.lat},${req.query.lng}`).then((response) => {
     res.send(response.data);
   }).catch(err => {
     res.sendStatus(500);
