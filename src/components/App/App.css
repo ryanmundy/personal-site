@@ -79,3 +79,19 @@ a{
 #submitButton{
     margin-bottom: 10px;
 }
+
+canvas{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#weather{
+    text-align: center;
+    color: white;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#weatherDiv{
+    text-align: center;
+}

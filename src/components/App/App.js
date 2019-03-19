@@ -16,6 +16,7 @@ import Portfolio from '../Portfolio/Portfolio';
 import './App.css';
 import ReactGA from 'react-ga';
 import axios from 'axios';
+const Skycons = require("skycons")(window);
 
 const DARK_SKY = process.env.DARK_SKY;
 
@@ -25,6 +26,13 @@ function initializeReactGA() {
 }
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.ref = React.createRef();
+  }
+
   state = {
     origin: {
       lat: '',
@@ -56,6 +64,41 @@ class App extends Component {
           currentIcon: response.data.currently.icon
         }
       })
+      const skycons = new Skycons({ color: "white" });
+      // skycons.add(this.ref.current, Skycons.PARTLY_CLOUDY_DAY);
+      let skycon = '';
+      if (this.state.weather.currentIcon === 'clear-day') {
+        skycon = Skycons.CLEAR_DAY
+      }
+      else if (this.state.weather.currentIcon === 'clear-night') {
+        skycon = Skycons.CLEAR_NIGHT
+      }
+      else if (this.state.weather.currentIcon === 'partly-cloudy-day') {
+        skycon = Skycons.PARTLY_CLOUDY_DAY
+      }
+      else if (this.state.weather.currentIcon === 'partly-cloudy-night') {
+        skycon = Skycons.PARTLY_CLOUDY_NIGHT
+      }
+      else if (this.state.weather.currentIcon === 'cloudy') {
+        skycon = Skycons.CLOUDY
+      }
+      else if (this.state.weather.currentIcon === 'rain') {
+        skycon = Skycons.RAIN
+      }
+      else if (this.state.weather.currentIcon === 'SLEET') {
+        skycon = Skycons.SLEET
+      }
+      else if (this.state.weather.currentIcon === 'snow') {
+        skycon = Skycons.SNOW
+      }
+      else if (this.state.weather.currentIcon === 'wind') {
+        skycon = Skycons.WIND
+      }
+      else if (this.state.weather.currentIcon === 'fog') {
+        skycon = Skycons.FOG
+      }
+      skycons.add(this.ref.current, skycon);
+      skycons.play();
     }).catch((error) => {
       console.log(error)
     });
@@ -76,6 +119,7 @@ class App extends Component {
             }
           })
           this.getWeather();
+
         }
       )
     } else {
@@ -91,8 +135,12 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
-          <p>Current Weather: {this.state.weather.currentIcon} {this.state.weather.currentWeather}° F , {this.state.weather.currentDescription}</p>
+          <div id="weatherDiv">
+          <p id="weather">Current Weather:</p>
+          <canvas ref={this.ref} width="15" height="15" />
+          <p id="weather">{this.state.weather.currentWeather}° F , {this.state.weather.currentDescription}</p>
           <a target="_blank" href="https://darksky.net/poweredby/"><p style={{ fontSize: "10px" }}><em>Powered by Dark Sky</em></p></a>
+          </div>
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route
