@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
+import Weather from '../Weather/Weather';
 
 const Nav = (props) => (
   <div className="nav">
@@ -8,6 +9,7 @@ const Nav = (props) => (
       <img className="nav-image" src="logo5.png" alt="logo" />
     </Link>
     <hr></hr>
+    <Weather />
     <br/>
     <div className="nav-right">
       <Link className="nav-link" to="/home">
