@@ -25,7 +25,7 @@ class Contact extends Component {
     submit = () => {
         console.log('in submit', this.state);
         if (this.state.name === '' || this.state.email === '' || this.state.message === '') {
-            alert('Please complete all fields!');
+            swal("Oops!", "Please complete all fields!", "warning");
         } else {
             axios({
                 method: 'POST',
@@ -36,6 +36,7 @@ class Contact extends Component {
                 swal("Success!", "Ryan will be in touch with you shortly.", "success");
             }).catch((error) => {
                 console.log(error)
+                swal("Oops!", "Something went wrong. Please try again.", "error");
             });
             this.setState({
                 name: '',
@@ -60,13 +61,7 @@ class Contact extends Component {
             <div className="div__container container__background--large">
                 <div>
                     <h1>Contact Me</h1>
-                    {/* <hr></hr> */}
                 </div>
-                {/* <div className="links">
-                    <h3>If you like the work I do, connect with me on <a style={{ color: "white" }} target="_blank" href="https://www.linkedin.com/in/ryan-mundy-4b147b88/">LinkedIn!</a></h3>
-                    <a target="_blank" href="https://www.linkedin.com/in/ryan-mundy-4b147b88/"><img className="linkImage" height="25px" src="Logo-White-48px-TM.png" alt="linkedin" /></a>
-                </div> */}
-
                 <div>
                     <MuiThemeProvider theme={theme}>
                         <Card>
