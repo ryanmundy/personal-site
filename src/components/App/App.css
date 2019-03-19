@@ -70,3 +70,7 @@ p{
 #projectImage{
     max-width: 500px;
 }
+
+#submitButton{
+    margin-bottom: 10px;
+}

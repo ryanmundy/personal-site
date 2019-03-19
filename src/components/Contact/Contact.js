@@ -91,7 +91,7 @@ class Contact extends Component {
                                 margin="normal"
                                 value={this.state.message} />
                             <br />
-                            <Button margin="normal" onClick={this.submit} variant="outlined">Send</Button>
+                            <Button id="submitButton" margin="normal" onClick={this.submit} variant="outlined">Send</Button>
                         </Card>
                     </MuiThemeProvider>
                 </div>

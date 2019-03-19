@@ -2,16 +2,19 @@
 const express = require('express');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
-
+const axios = require('axios')
 const app = express();
 const bodyParser = require('body-parser');
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_PASS = process.env.GMAIL_PASS;
+let sslRedirect = require('heroku-ssl-redirect');
 app.set('view engine', 'jade');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// enable ssl redirect
+app.use(sslRedirect());
 
 // Serve static files
 app.use(express.static('build'));
@@ -47,6 +50,15 @@ app.post('/contact', function (req, res) {
     }
   });
 });
+
+app.get('/forecast', (req, res) => {
+  console.log(req.query);
+  axios.get(`https://api.darksky.net/forecast/${process.env.DARK_SKY}/${req.query.lat},${req.query.lng}`).then((response) => {
+    res.send(response.data);
+  }).catch(err => {
+    res.sendStatus(500);
+  });
+})
 
 /** Listen * */
 app.listen(PORT, () => {
