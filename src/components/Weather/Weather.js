@@ -112,7 +112,7 @@ class Weather extends Component {
                     <canvas ref={this.ref} width="17" height="17" />
                     <p id="weather">{this.state.weather.currentWeather}° F , {this.state.weather.currentDescription}</p>
                 </a>
-                <a id="weather" target="_blank" href="https://darksky.net/poweredby/"><img  height="21px" src="poweredby-oneline-darkbackground.png" alt="github" /></a>
+                <a id="weather" target="_blank" href="https://darksky.net/poweredby/"><img  height="21px" src="poweredby-oneline-darkbackground.png" alt="darksky" /></a>
             </div>
         )
     }
