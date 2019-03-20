@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import swal from 'sweetalert';
 const Skycons = require("skycons")(window);
 
 class Weather extends Component {
@@ -98,7 +99,7 @@ class Weather extends Component {
                 }
             )
         } else {
-            alert('Location services not supported by your browser');
+            swal("","Location services not supported by your browser.", "error");
         }
     }
 
