@@ -108,7 +108,7 @@ class Weather extends Component {
             <div id="weatherDiv">
                 <a id="weather" target="_blank" href="https://darksky.net/poweredby/">
                     <p id="weather">Current Weather:</p>
-                    <canvas ref={this.ref} width="15" height="15" />
+                    <canvas ref={this.ref} width="17" height="17" />
                     <p id="weather">{this.state.weather.currentWeather}° F , {this.state.weather.currentDescription}</p>
                 </a>
                 <a id="weather" target="_blank" href="https://darksky.net/poweredby/"><p style={{ fontSize: "10px" }}><em>Powered by Dark Sky</em></p></a>
